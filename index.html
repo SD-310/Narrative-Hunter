@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950 text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Influencer Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center p-6">
+
+  <!-- Header -->
+  <header class="w-full max-w-3xl mb-6">
+    <h1 class="text-3xl font-bold text-center text-blue-400">Narrative Hunter</h1>
+    <p class="text-center text-gray-400">Stay Ahead of the markets</p>
+  </header>
+
+  <!-- Influencer List -->
+  <section id="influencer-list" class="w-full max-w-3xl space-y-6">
+
+    <!-- Influencer Card -->
+  <a href="detailed.html" class="block">   <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-blue-500/20 transition">
+      <div class="flex items-center gap-4">
+        <img src="https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg"
+             alt="Elon Musk"
+             class="w-14 h-14 rounded-full border border-gray-700">
+        <div>
+          <h2 class="text-xl font-semibold">Elon Musk</h2>
+          <p class="text-gray-400 text-sm">@elonmusk</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 text-sm mt-4">
+        <div>
+          <p class="text-gray-400">Followers</p>
+          <p class="font-medium">190M</p>
+        </div>
+        <div>
+          <p class="text-gray-400">Last Post</p>
+          <p class="font-medium">2h ago</p>
+        </div>
+        <div>
+          <p class="text-gray-400">Last Reply</p>
+          <p class="font-medium">30m ago</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-gray-800 rounded-xl text-gray-300 text-sm">
+        🚀 "Launching something new soon..."
+      </div>
+    </div>
+</a>
+    <!-- Influencer Card -->
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-blue-500/20 transition">
+      <div class="flex items-center gap-4">
+        <img src="https://pbs.twimg.com/profile_images/1501773981963679752/C9YJY6mZ_400x400.jpg"
+             alt="CZ Binance"
+             class="w-14 h-14 rounded-full border border-gray-700">
+        <div>
+          <h2 class="text-xl font-semibold">CZ Binance</h2>
+          <p class="text-gray-400 text-sm">@cz_binance</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 text-sm mt-4">
+        <div>
+          <p class="text-gray-400">Followers</p>
+          <p class="font-medium">8.9M</p>
+        </div>
+        <div>
+          <p class="text-gray-400">Last Post</p>
+          <p class="font-medium">5h ago</p>
+        </div>
+        <div>
+          <p class="text-gray-400">Last Reply</p>
+          <p class="font-medium">1h ago</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-gray-800 rounded-xl text-gray-300 text-sm">
+        🔥 "Stay SAFU everyone!"
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Add Influencer Button -->
+  <button id="add-btn"
+          class="fixed bottom-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg">
+    ➕ Add Influencer
+  </button>
+
+  <!-- Slide Down Search Bar -->
+  <div id="search-bar" class="fixed top-0 left-0 w-full bg-gray-900 p-4 shadow-lg transform -translate-y-full transition-transform">
+    <input type="text"
+           placeholder="Search influencer by handle..."
+           class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none">
+  </div>
+
+  <script>
+    const addBtn = document.getElementById("add-btn");
+    const searchBar = document.getElementById("search-bar");
+
+    addBtn.addEventListener("click", () => {
+      searchBar.classList.toggle("-translate-y-full");
+    });
+  </script>
+
+</body>
+</html>
