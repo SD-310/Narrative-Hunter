@@ -5,105 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Influencer Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Fade + slide-in animation */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fadeSlideUp {
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    /* Bounce animation */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-bounce-3 {
+      animation: bounce 1s ease-in-out 3;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    .animate-fade-in-up {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    /* Loading dots animation */
+    .loading-dots span {
+      animation: blink 1.4s infinite both;
+      font-size: 1.5rem;
+      color: #60a5fa; /* blue-400 */
+      margin-right: 2px;
+    }
+    .loading-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .loading-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
+    }
+  </style>
 </head>
 <body class="min-h-screen flex flex-col items-center p-6">
 
   <!-- Header -->
-  <header class="w-full max-w-3xl mb-6">
+  <header class="w-full max-w-3xl mb-6 flex flex-col items-center">
     <h1 class="text-3xl font-bold text-center text-blue-400">Narrative Hunter</h1>
     <p class="text-center text-gray-400">Stay Ahead of the markets</p>
+
+    <!-- Switch Tabs -->
+    <div class="flex gap-3 mt-4">
+      <button id="tab-influencers"
+              class="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition"
+              aria-label="Switch to Influencers tab">
+        Influencers
+      </button>
+      <button id="tab-ai"
+              class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition"
+              aria-label="Switch to AI Rundown tab">
+        AI Rundown
+      </button>
+    </div>
   </header>
 
   <!-- Influencer List -->
   <section id="influencer-list" class="w-full max-w-3xl space-y-6">
-
-    <!-- Influencer Card -->
-  <a href="detailed.html" class="block">   <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-blue-500/20 transition">
-      <div class="flex items-center gap-4">
-        <img src="https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg"
-             alt="Elon Musk"
-             class="w-14 h-14 rounded-full border border-gray-700">
-        <div>
-          <h2 class="text-xl font-semibold">Elon Musk</h2>
-          <p class="text-gray-400 text-sm">@elonmusk</p>
+    <!-- Influencer Card (Elon Musk) -->
+    <a href="detailed.html" class="block">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-1 hover:scale-[1.02] transition duration-300 opacity-0 animate-fadeSlideUp">
+        <div class="flex items-center gap-4">
+          <img src="https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg"
+               alt="Profile picture of Elon Musk"
+               class="w-14 h-14 rounded-full border border-gray-700">
+          <div>
+            <h2 class="text-xl font-semibold">Elon Musk</h2>
+            <p class="text-gray-400 text-sm">@elonmusk</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 text-sm mt-4">
+          <div>
+            <p class="text-gray-400">Followers</p>
+            <p class="font-medium">190M</p>
+          </div>
+          <div>
+            <p class="text-gray-400">Last Post</p>
+            <p class="font-medium">2h ago</p>
+          </div>
+          <div>
+            <p class="text-gray-400">Last Reply</p>
+            <p class="font-medium">30m ago</p>
+          </div>
+        </div>
+        <div class="mt-4 p-3 bg-gray-800 rounded-xl text-gray-300 text-sm">
+          🚀 "Launching something new soon..."
         </div>
       </div>
+    </a>
 
-      <div class="grid grid-cols-3 gap-4 text-sm mt-4">
-        <div>
-          <p class="text-gray-400">Followers</p>
-          <p class="font-medium">190M</p>
+    <!-- Influencer Card (CZ Binance) -->
+    <a href="detailed.html" class="block">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-1 hover:scale-[1.02] transition duration-300 opacity-0 animate-fadeSlideUp" style="animation-delay: 0.2s;">
+        <div class="flex items-center gap-4">
+          <img src="https://pbs.twimg.com/profile_images/1501773981963679752/C9YJY6mZ_400x400.jpg"
+               alt="Profile picture of CZ Binance"
+               class="w-14 h-14 rounded-full border border-gray-700">
+          <div>
+            <h2 class="text-xl font-semibold">CZ Binance</h2>
+            <p class="text-gray-400 text-sm">@cz_binance</p>
+          </div>
         </div>
-        <div>
-          <p class="text-gray-400">Last Post</p>
-          <p class="font-medium">2h ago</p>
+        <div class="grid grid-cols-3 gap-4 text-sm mt-4">
+          <div>
+            <p class="text-gray-400">Followers</p>
+            <p class="font-medium">8.9M</p>
+          </div>
+          <div>
+            <p class="text-gray-400">Last Post</p>
+            <p class="font-medium">5h ago</p>
+          </div>
+          <div>
+            <p class="text-gray-400">Last Reply</p>
+            <p class="font-medium">1h ago</p>
+          </div>
         </div>
-        <div>
-          <p class="text-gray-400">Last Reply</p>
-          <p class="font-medium">30m ago</p>
+        <div class="mt-4 p-3 bg-gray-800 rounded-xl text-gray-300 text-sm">
+          🔥 "Stay SAFU everyone!"
         </div>
       </div>
+    </a>
+  </section>
 
-      <div class="mt-4 p-3 bg-gray-800 rounded-xl text-gray-300 text-sm">
-        🚀 "Launching something new soon..."
+  <!-- AI Rundown Section -->
+  <section id="ai-section" class="hidden w-full max-w-3xl space-y-6 mt-8">
+    <div class="p-6 bg-gray-900 border border-gray-800 rounded-2xl shadow-lg hover:shadow-blue-500/20 transition duration-300 transform hover:-translate-y-1">
+      <h2 class="text-xl font-semibold mb-4 text-blue-400 animate-fade-in">AI Rundown</h2>
+      <p class="text-gray-400 mb-4 animate-fade-in">Enter X handle to get insights.</p>
+      <div class="flex gap-2">
+        <input type="text" id="addressInput"
+               placeholder="paste here..."
+               class="flex-1 px-4 py-2 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        <button id="rundownBtn"
+                class="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition transform hover:scale-105 active:scale-95">
+          Run
+        </button>
       </div>
     </div>
-</a>
-    <!-- Influencer Card -->
-    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg hover:shadow-blue-500/20 transition">
-      <div class="flex items-center gap-4">
-        <img src="https://pbs.twimg.com/profile_images/1501773981963679752/C9YJY6mZ_400x400.jpg"
-             alt="CZ Binance"
-             class="w-14 h-14 rounded-full border border-gray-700">
-        <div>
-          <h2 class="text-xl font-semibold">CZ Binance</h2>
-          <p class="text-gray-400 text-sm">@cz_binance</p>
-        </div>
-      </div>
 
-      <div class="grid grid-cols-3 gap-4 text-sm mt-4">
-        <div>
-          <p class="text-gray-400">Followers</p>
-          <p class="font-medium">8.9M</p>
+    <!-- AI Output -->
+    <div id="aiOutput" class="hidden p-6 bg-gray-900 border border-gray-800 rounded-2xl shadow-lg animate-fade-in-up">
+      <h3 class="text-lg font-semibold mb-2 text-blue-400">AI Summary</h3>
+      <p id="aiSummary" class="text-gray-300 flex items-center">
+        <span id="loadingDots" class="loading-dots hidden">
+          <span>.</span><span>.</span><span>.</span>
+        </span>
+      </p>
+      <div class="mt-4 grid grid-cols-2 gap-4">
+        <div class="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+          <p class="text-sm text-gray-400">Activity Score</p>
+          <p class="text-xl font-bold text-green-400">--</p>
         </div>
-        <div>
-          <p class="text-gray-400">Last Post</p>
-          <p class="font-medium">5h ago</p>
+        <div class="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+          <p class="text-sm text-gray-400">Top Tokens</p>
+          <p class="text-lg font-semibold text-yellow-400">--</p>
         </div>
-        <div>
-          <p class="text-gray-400">Last Reply</p>
-          <p class="font-medium">1h ago</p>
-        </div>
-      </div>
-
-      <div class="mt-4 p-3 bg-gray-800 rounded-xl text-gray-300 text-sm">
-        🔥 "Stay SAFU everyone!"
       </div>
     </div>
-
   </section>
 
   <!-- Add Influencer Button -->
   <button id="add-btn"
-          class="fixed bottom-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg">
+          class="fixed bottom-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg animate-bounce-3">
     ➕ Add Influencer
   </button>
 
   <!-- Slide Down Search Bar -->
-  <div id="search-bar" class="fixed top-0 left-0 w-full bg-gray-900 p-4 shadow-lg transform -translate-y-full transition-transform">
+  <div id="search-bar" class="fixed top-0 left-0 w-full bg-gray-900 p-4 shadow-lg transform -translate-y-full transition-transform duration-500">
     <input type="text"
            placeholder="Search influencer by handle..."
            class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none">
   </div>
 
   <script>
+    const influencersBtn = document.getElementById("tab-influencers");
+    const aiBtn = document.getElementById("tab-ai");
     const addBtn = document.getElementById("add-btn");
     const searchBar = document.getElementById("search-bar");
+
+    function showAISection() {
+      document.getElementById("influencer-list").classList.add("hidden");
+      document.getElementById("ai-section").classList.remove("hidden");
+      influencersBtn.classList.add("bg-gray-800", "hover:bg-gray-700");
+      influencersBtn.classList.remove("bg-blue-500", "hover:bg-blue-600");
+      aiBtn.classList.add("bg-blue-500", "hover:bg-blue-600");
+      aiBtn.classList.remove("bg-gray-800", "hover:bg-gray-700");
+    }
+
+    function showInfluencers() {
+      document.getElementById("ai-section").classList.add("hidden");
+      document.getElementById("influencer-list").classList.remove("hidden");
+      aiBtn.classList.add("bg-gray-800", "hover:bg-gray-700");
+      aiBtn.classList.remove("bg-blue-500", "hover:bg-blue-600");
+      influencersBtn.classList.add("bg-blue-500", "hover:bg-blue-600");
+      influencersBtn.classList.remove("bg-gray-800", "hover:bg-gray-700");
+    }
+
+    influencersBtn.addEventListener("click", showInfluencers);
+    aiBtn.addEventListener("click", showAISection);
 
     addBtn.addEventListener("click", () => {
       searchBar.classList.toggle("-translate-y-full");
     });
-  </script>
 
+    document.getElementById("rundownBtn").addEventListener("click", () => {
+      const aiOutput = document.getElementById("aiOutput");
+      const aiSummary = document.getElementById("aiSummary");
+      const loadingDots = document.getElementById("loadingDots");
+
+      aiOutput.classList.remove("hidden");
+      aiSummary.textContent = "";
+      loadingDots.classList.remove("hidden");
+
+      setTimeout(() => {
+        loadingDots.classList.add("hidden");
+        aiSummary.textContent =
+          "This account shows high botted engagements, Its primary focus is on ETH utility projects. Last active in the last 4 hrs.";
+      }, 2500);
+    });
+
+    // Initialize influencers tab on load
+    document.addEventListener("DOMContentLoaded", showInfluencers);
+  </script>
 </body>
 </html>
