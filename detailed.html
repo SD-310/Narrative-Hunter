@@ -46,14 +46,15 @@
     <!-- Header -->
     <header class="bg-gray-800 bg-opacity-80 backdrop-blur-md p-4 flex justify-between items-center fixed w-full z-10">
         <h1 class="text-xl font-bold text-white-400">Voucher Market</h1>
-        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105" id="connectWallet">Connect Wallet</button>
+       <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-1.5 text-sm rounded-full shadow-lg transition-all duration-300 transform hover:scale-105" id="connectWallet">Connect Wallet</button>
+</header>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto pt-20 pb-10 px-4">
         <!-- Voucher Collections (Slideshow) -->
         <section class="mb-8">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-100">Coupons on Sale</h2>
+            <h2 class="text-lg font-semibold mb-4 text-gray-400">Coupons on Sale</h2>
             <div class="slideshow" id="voucherSlideshow">
                 <!-- Voucher Card -->
                 <div class="slide bg-gray-800 bg-opacity-90 rounded-xl overflow-hidden shadow-xl border border-gray-700">
@@ -97,7 +98,7 @@
 
         <!-- Best Free Vouchers -->
         <section>
-            <h2 class="text-2xl font-semibold mb-4 text-gray-100">Best Free Vouchers</h2>
+            <h2 class="text-2xl font-semibold mb-4 text-gray-100">Hot Raffle Sale </h2>
             <div class="flex items-center space-x-6">
                 <div class="bg-gray-800 bg-opacity-90 p-4 rounded-xl flex items-center space-x-4 shadow-lg border border-gray-700">
                     <img src="https://via.placeholder.com/50?text=DOGS+OG" alt="DOGS OG" class="w-12 h-12">
@@ -112,16 +113,23 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 bg-opacity-80 backdrop-blur-md p-4 text-center text-gray-400">
-        <div class="flex justify-center space-x-6">
-            <a href="#" class="hover:text-yellow-400"><i class="fas fa-smile"></i></a>
-            <a href="#" class="hover:text-yellow-400"><i class="fas fa-store"></i></a>
-            <a href="#" class="hover:text-yellow-400"><i class="fas fa-heart"></i></a>
-        </div>
-    </footer>
+  <footer class="bg-gray-800 bg-opacity-80 backdrop-blur-md p-6 text-center text-gray-400 fixed bottom-0 w-full">
+    <div class="flex justify-center space-x-8">
+        <a href="#" class="hover:text-yellow-400 text-2xl sm:text-3xl md:text-4xl transition-colors">
+            <i class="fas fa-smile"></i>
+        </a>
+        <a href="#" class="hover:text-yellow-400 text-2xl sm:text-3xl md:text-4xl transition-colors">
+            <i class="fas fa-store"></i>
+        </a>
+        <a href="#" class="hover:text-yellow-400 text-2xl sm:text-3xl md:text-4xl transition-colors">
+            <i class="fas fa-heart"></i>
+        </a>
+    </div>
+</footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
