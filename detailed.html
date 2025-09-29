@@ -1,304 +1,125 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Influencer Detail</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background: #0f0f0f; }
-    .tooltip {
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(31, 41, 55, 0.9);
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.25s ease;
-    }
-    .tooltip::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: rgba(31, 41, 55, 0.9) transparent transparent transparent;
-    }
-    .tooltip-container:hover .tooltip {
-      opacity: 1;
-      transform: translate(-50%, -5px);
-    }
-    /* Animations */
-    @keyframes fadeSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .animate-fadeSlideUp {
-      animation: fadeSlideUp 0.6s ease forwards;
-    }
-    @keyframes zoomIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    .animate-zoomIn {
-      animation: zoomIn 0.6s ease forwards;
-    }
-    @keyframes glow {
-      0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2); }
-      50% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
-      100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.2); }
-    }
-    .animate-glow {
-      animation: glow 1.5s ease-in-out forwards;
-    }
-    @keyframes pulse-3 {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    .animate-pulse-3 {
-      animation: pulse-3 0.5s ease-in-out 3;
-    }
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .animate-fadeInDown {
-      animation: fadeInDown 0.6s ease forwards;
-    }
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-    .animate-fadeOut {
-      animation: fadeOut 0.6s ease forwards;
-    }
-  </style>
-</head>
-<body class="text-gray-200 font-sans pb-24">
-  <!-- Header -->
-  <header class="flex items-center justify-between p-4 border-b border-gray-700 bg-gray-900/70 backdrop-blur-md">
-    <h1 class="text-xl font-bold text-blue-400">Influencer Detail</h1>
-    <a href="index.html" class="text-gray-400 hover:text-white transition">← Back</a>
-  </header>
-
-  <!-- Profile Section -->
-  <section class="p-6 opacity-0 animate-zoomIn">
-  <div class="flex items-center space-x-4 p-6 bg-gray-800/70 rounded-2xl shadow-lg hover:shadow-blue-500/20 transition hover:scale-[1.01]">
-    <img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" 
-         alt="Profile picture of Elon Musk" 
-         class="w-20 h-20 rounded-full ring-2 ring-blue-500 hover:ring-blue-400 transition">
-    
-    <div>
-      <h2 class="text-2xl font-bold text-white">Elon Musk</h2>
-      <p class="text-gray-400">@elonmusk</p>
-      
-      <!-- fixed badge container -->
-      <div class="flex flex-wrap gap-3 mt-2 text-xs sm:text-sm text-gray-300">
-        <span class="px-1.5 sm:px-3 py-0.5 sm:py-1 bg-gray-700 rounded-full hover:bg-gray-600 transition">
-          Followers: 190M
-        </span>
-        <span class="px-1.5 sm:px-3 py-0.5 sm:py-1 bg-gray-700 rounded-full hover:bg-gray-600 transition">
-          Last Post: 2h ago
-        </span>
-        <span class="px-1.5 sm:px-3 py-0.5 sm:py-1 bg-gray-700 rounded-full hover:bg-gray-600 transition">
-          Last Reply: 30m ago
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Tickers Section -->
-  <section class="p-6 opacity-0 animate-fadeSlideUp" style="animation-delay: 0.2s;">
-    <h3 class="text-lg font-semibold text-blue-400 mb-2">Tickers They’re Shilling</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-400/20 hover:scale-[1.01] transition cursor-pointer opacity-0 animate-fadeSlideUp" style="animation-delay: 0.4s;">
-        <div class="flex justify-between items-center">
-          <span class="text-xl font-bold text-green-400">$DOGE</span>
-          <span class="text-sm text-gray-400">+12% 24h</span>
-        </div>
-        <p class="text-gray-300 text-sm mt-2">Mentioned in last 3 tweets</p>
-      </div>
-      <div class="p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-400/20 hover:scale-[1.01] transition cursor-pointer opacity-0 animate-fadeSlideUp" style="animation-delay: 0.6s;">
-        <div class="flex justify-between items-center">
-          <span class="text-xl font-bold text-yellow-400">$TSLA</span>
-          <span class="text-sm text-gray-400">+5% 24h</span>
-        </div>
-        <p class="text-gray-300 text-sm mt-2">Shilled in reply thread</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tweets Section -->
-  <section class="p-6 space-y-4 opacity-0 animate-fadeSlideUp" style="animation-delay: 0.4s;">
-    <h3 class="text-lg font-semibold text-blue-400 mb-2">Recent Tweets</h3>
-    <div id="tweets-container" class="space-y-4">
-      <div class="p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-400/20 hover:scale-[1.01] transition cursor-pointer">
-        <p class="text-gray-200">Just launched Starship to Mars 🚀</p>
-        <div class="flex justify-between mt-3 text-sm text-gray-400">
-          <span>2h ago</span>
-          <div class="space-x-4">
-            <span>❤️ 120K</span>
-            <span>🔁 50K</span>
-          </div>
-        </div>
-      </div>
-      <div class="p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-400/20 hover:scale-[1.01] transition cursor-pointer">
-        <p class="text-gray-200">AI will change everything 🤖</p>
-        <div class="flex justify-between mt-3 text-sm text-gray-400">
-          <span>5h ago</span>
-          <div class="space-x-4">
-            <span>❤️ 90K</span>
-            <span>🔁 35K</span>
-          </div>
-        </div>
-      </div>
-      <div class="p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-400/20 hover:scale-[1.01] transition cursor-pointer">
-        <p class="text-gray-200">Tesla stock to the moon! 📈</p>
-        <div class="flex justify-between mt-3 text-sm text-gray-400">
-          <span>Just now</span>
-          <div class="space-x-4">
-            <span>❤️ 150K</span>
-            <span>🔁 60K</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI Summary Section -->
-  <section class="p-6 opacity-0 animate-fadeSlideUp" style="animation-delay: 0.6s;">
-    <h3 class="text-lg font-semibold text-blue-400 mb-2">AI Summary</h3>
-    <div class="p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-500/20 hover:scale-[1.01] transition animate-glow">
-      <p class="text-gray-300 leading-relaxed">
-        Elon is currently focused on Mars exploration and AI innovation. Engagement is extremely high, with tweets averaging over 100K likes.
-      </p>
-    </div>
-  </section>
-
-  <!-- Floating Bottom Bar -->
-  <div class="fixed bottom-0 left-0 right-0 bg-gray-900/80 backdrop-blur-lg border-t border-gray-700 p-4 flex items-center justify-center">
-    <div class="tooltip-container relative">
-      <button id="notification-btn" class="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-lg shadow-md transition" aria-label="Toggle tweet notifications" aria-pressed="true">🔔 Notifications</button>
-      <div id="notification-tooltip" class="tooltip">Turn off tweet alerts</div>
-    </div>
-  </div>
-
-  <script>
-    // Mock new tweets
-    const mockTweets = [
-      { text: "Tesla stock to the moon! 📈", time: "Just now", likes: "150K", retweets: "60K" },
-      { text: "Thinking about open-sourcing more code... 🤔", time: "1m ago", likes: "80K", retweets: "25K" },
-      { text: "Starlink expanding to new regions! 🌍", time: "10m ago", likes: "110K", retweets: "45K" }
-    ];
-    let tweetIndex = 0;
-
-    function addNewTweet() {
-      const tweetsContainer = document.getElementById("tweets-container");
-      const tweets = tweetsContainer.querySelectorAll("div");
-      
-      // Remove oldest tweet if already at 3
-      if (tweets.length >= 3) {
-        const oldestTweet = tweetsContainer.lastChild;
-        oldestTweet.classList.add("animate-fadeOut");
-        setTimeout(() => oldestTweet.remove(), 600);
-      }
-      
-      // Create new tweet
-      const newTweet = document.createElement("div");
-      newTweet.className = "p-4 bg-gray-800/70 rounded-xl shadow-md hover:shadow-blue-400/20 transition cursor-pointer opacity-0 animate-fadeInDown";
-      newTweet.innerHTML = `
-        <p class="text-gray-200">${mockTweets[tweetIndex].text}</p>
-        <div class="flex justify-between mt-3 text-sm text-gray-400">
-          <span>${mockTweets[tweetIndex].time}</span>
-          <div class="space-x-4">
-            <span>❤️ ${mockTweets[tweetIndex].likes}</span>
-            <span>🔁 ${mockTweets[tweetIndex].retweets}</span>
-          </div>
-        </div>
-      `;
-      
-      // Add new tweet at the top
-      tweetsContainer.insertBefore(newTweet, tweetsContainer.firstChild);
-      
-      // Update index for next tweet
-      tweetIndex = (tweetIndex + 1) % mockTweets.length;
-    }
-
-    // Add new tweet every 5 seconds
-    setInterval(addNewTweet, 5000);
-
-    // Notification toggle
-    const notificationBtn = document.getElementById("notification-btn");
-    const notificationTooltip = document.getElementById("notification-tooltip");
-    let notificationsEnabled = true;
-
-    if (notificationBtn) {
-      notificationBtn.addEventListener("click", () => {
-        console.log("Notification button clicked, current state:", notificationsEnabled);
-        notificationsEnabled = !notificationsEnabled;
-        notificationBtn.classList.remove("animate-pulse-3");
-        notificationBtn.classList.add("animate-pulse-3");
-        if (notificationsEnabled) {
-          notificationBtn.classList.remove("bg-red-500", "hover:bg-red-600");
-          notificationBtn.classList.add("bg-green-500", "hover:bg-green-600");
-          notificationBtn.textContent = "🔔 Notifications";
-          notificationBtn.setAttribute("aria-pressed", "true");
-          notificationTooltip.textContent = "Turn off tweet alerts";
-        } else {
-          notificationBtn.classList.remove("bg-green-500", "hover:bg-green-600");
-          notificationBtn.classList.add("bg-red-500", "hover:bg-red-600");
-          notificationBtn.textContent = "🔔 Notifications Off";
-          notificationBtn.setAttribute("aria-pressed", "false");
-          notificationTooltip.textContent = "Turn on tweet alerts";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voucher Marketplace</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom gradient background */
+        body {
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
         }
-        // Remove pulse-3 after animation completes
-        setTimeout(() => notificationBtn.classList.remove("animate-pulse-3"), 1500);
-      });
-    } else {
-      console.error("Notification button not found");
-    }
-  </script>
+        /* Slideshow styling */
+        .slideshow {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 1rem;
+        }
+        .slideshow::-webkit-scrollbar {
+            display: none;
+        }
+        .slide {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 280px;
+            transition: transform 0.3s ease;
+        }
+        .slide:hover {
+            transform: scale(1.05);
+        }
+        @media (min-width: 640px) {
+            .slideshow {
+                overflow-x: hidden;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .slide {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+<body class="text-white font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 bg-opacity-80 backdrop-blur-md p-4 flex justify-between items-center fixed w-full z-10">
+        <h1 class="text-2xl font-bold text-yellow-400">Voucher Market</h1>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105" id="connectWallet">Connect Wallet</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto pt-20 pb-10 px-4">
+        <!-- Voucher Collections (Slideshow) -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-100">Voucher Collections</h2>
+            <div class="slideshow" id="voucherSlideshow">
+                <!-- Voucher Card -->
+                <div class="slide bg-gray-800 bg-opacity-90 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <img src="https://via.placeholder.com/280x200?text=Notcoin+Voucher" alt="Notcoin Voucher" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-teal-300">Notcoin Voucher</h3>
+                        <p class="text-green-400 mt-1">100M Tokens</p>
+                        <p class="text-gray-400 text-sm mt-1">Price: 50 TON</p>
+                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg mt-3 w-full transition">Buy Now</button>
+                    </div>
+                </div>
+                <div class="slide bg-gray-800 bg-opacity-90 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <img src="https://via.placeholder.com/280x200?text=DOGS+OG+Voucher" alt="DOGS OG Voucher" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-teal-300">DOGS OG Voucher</h3>
+                        <p class="text-green-400 mt-1">50M Tokens</p>
+                        <p class="text-gray-400 text-sm mt-1">Price: 25 TON</p>
+                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg mt-3 w-full transition">Buy Now</button>
+                    </div>
+                </div>
+                <div class="slide bg-gray-800 bg-opacity-90 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <img src="https://via.placeholder.com/280x200?text=Shardify+Voucher" alt="Shardify Voucher" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-teal-300">Shardify Voucher</h3>
+                        <p class="text-green-400 mt-1">75M Tokens</p>
+                        <p class="text-gray-400 text-sm mt-1">Price: 40 TON</p>
+                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg mt-3 w-full transition">Buy Now</button>
+                    </div>
+                </div>
+                <div class="slide bg-gray-800 bg-opacity-90 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <img src="https://via.placeholder.com/280x200?text=Pepe+Voucher" alt="Pepe Voucher" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-teal-300">Pepe Voucher</h3>
+                        <p class="text-green-400 mt-1">30M Tokens</p>
+                        <p class="text-gray-400 text-sm mt-1">Price: 15 TON</p>
+                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg mt-3 w-full transition">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Free Vouchers -->
+        <section>
+            <h2 class="text-2xl font-semibold mb-4 text-gray-100">Best Free Vouchers</h2>
+            <div class="flex items-center space-x-6">
+                <div class="bg-gray-800 bg-opacity-90 p-4 rounded-xl flex items-center space-x-4 shadow-lg border border-gray-700">
+                    <img src="https://via.placeholder.com/50?text=DOGS+OG" alt="DOGS OG" class="w-12 h-12">
+                    <div>
+                        <h3 class="text-md font-bold text-teal-300">DOGS OG</h3>
+                        <p class="text-gray-400 text-sm">15 Vouchers</p>
+                    </div>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">Get Free</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 bg-opacity-80 backdrop-blur-md p-4 text-center text-gray-400">
+        <div class="flex justify-center space-x-6">
+            <a href="#" class="hover:text-yellow-400"><i class="fas fa-smile"></i></a>
+            <a href="#" class="hover:text-yellow-400"><i class="fas fa-store"></i></a>
+            <a href="#" class="hover:text-yellow-400"><i class="fas fa-heart"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
